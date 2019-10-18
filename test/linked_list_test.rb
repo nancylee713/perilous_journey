@@ -35,6 +35,18 @@ class LinkedListTest < Minitest::Test
     assert_nil @list.head.next_node
   end
 
+  def test_append_two_nodes
+    @list.append('West')
+
+    assert_nil @list.head.next_node
+
+    @list.append('East')
+
+    assert_instance_of Node, @list.head.next_node
+    assert_equal 'East', @list.head.next_node.surname
+    assert_nil @list.head.next_node.next_node
+  end
+
   def test_count_number_of_nodes_in_a_list
     @list.append('West')
 
@@ -49,5 +61,9 @@ class LinkedListTest < Minitest::Test
     @list.append('West')
 
     assert_equal 'The West family', @list.to_string
+
+    @list.append('East')
+
+    assert_equal 'The West family, followed by the East family', @list.to_string
   end
 end

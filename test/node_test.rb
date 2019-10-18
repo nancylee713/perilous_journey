@@ -31,4 +31,15 @@ class NodeTest < Minitest::Test
     assert_equal "Burke", node.surname
     assert_equal "Bike", node.next_node.surname
   end
+
+  def test_to_string
+    node = Node.new("Burke")
+
+    assert_equal "The Burke family", node.to_string(node.surname)
+
+    node.append("Rhodes")
+
+    expected = "The Burke family, follwed by the Rhodes family"
+    assert_equal expected, node.to_string(node.surname)
+  end
 end

@@ -20,6 +20,11 @@ class LinkedList
   end
 
   def to_string
-    "The " + self.head.surname + " family"
+    result = "The #{@head.surname} family"
+    if @head.next_node.nil?
+      return result
+    else
+      @head.to_string(result)
+    end
   end
 end

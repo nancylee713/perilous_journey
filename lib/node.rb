@@ -19,4 +19,12 @@ class Node
       @next_node.append(data)
     end
   end
+
+  def to_string(data)
+    if @next_node.next_node.nil?
+      data += ", followed by the #{@next_node.surname} family"
+    else
+      @next_node.to_string(data)
+    end
+  end
 end
